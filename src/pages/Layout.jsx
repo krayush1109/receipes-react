@@ -1,5 +1,5 @@
-import Footer from "./Footer";
-import Home from "./Home";
+import Footer from "../components/Footer";
+import Home from "../components/HeroSection";
 import Recipes from "./Recipes";
 
 const Layout = () => {

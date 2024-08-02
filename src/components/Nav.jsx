@@ -29,7 +29,7 @@ const Nav = () => {
                     Contact
                 </Link>
             </div>
-            <i class="text-3xl ri-grid-fill text-green-600"></i>
+            <i className="text-3xl ri-grid-fill text-green-600"></i>
         </nav>
     );
 };
