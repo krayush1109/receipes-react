@@ -11,8 +11,17 @@ const UpdateX = () => {
     // console.log(params);
 
     useEffect(() => {
-        const selectedRecipes = recipes.filter((recipe) => recipe.id == params.id)[0];        
+        const selectedRecipes = recipes.filter((recipe) => recipe.id == params.id)[0];
         setFData(selectedRecipes);
+        return () => {
+            setFData({
+                url: "",
+                name: '',
+                description: '',
+                ingredients: '',
+                instructions: ''
+            })
+        }
     }, [])
 
     return (
