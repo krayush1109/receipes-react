@@ -1,20 +1,27 @@
 import React, { useContext, useEffect, useState } from "react";
 import Create from "./Create.js";
-import { ReceipesContext } from "../context/ReceipesContext.jsx";
+import { RecipesContext } from "../context/RecipesContext.jsx";
 
 const CreateX = () => {
     const { handleCreate, } = Create();
-    const { receipes, fData, setFData } = useContext(ReceipesContext);
-
+    const { recipes, fData, setFData } = useContext(RecipesContext);
+    
     useEffect(() => {
-        console.log("Componets Mounted")        
-        console.log(receipes);
+        // console.log("Componets Mounted")
+        // console.log(recipes);
 
         return () => {
-            console.log("Componets Unmounted")
+            // console.log("Componets Unmounted")
+            setFData({
+                url: "",
+                name: '',
+                description: '',
+                ingredients: '',
+                instructions: ''
+            })
         }
-        
-    }, [receipes])
+
+    }, [recipes])
 
     return (
         <form onSubmit={handleCreate} className="w-[70%] m-auto  ">
@@ -34,7 +41,7 @@ const CreateX = () => {
                 className="w-full border rounded-md px-6 py-3 text-lg mb-5"
                 placeholder="Recipe Name"
                 value={fData.name}
-                onChange={(e)=> setFData({...fData, name: e.target.value})}
+                onChange={(e) => setFData({ ...fData, name: e.target.value })}
             />
             <textarea
                 className="w-full border rounded-md px-6 py-3 text-lg mb-5"

@@ -1,25 +1,25 @@
 import { useContext } from 'react';
-import { ReceipesContext } from '../context/ReceipesContext';
+import { RecipesContext } from '../context/RecipesContext';
 import { nanoid } from 'nanoid'
 
 const Create = () => {
-    const { receipes, setReceipes, fData, setFData } = useContext(ReceipesContext)
-    console.log(nanoid());
+    const { recipes, setRecipes, fData, setFData } = useContext(RecipesContext)
+    console.log(nanoid());    
     const handleCreate = (e) => {
         e.preventDefault();
         console.log("Create button clicked");
 
-        const newReceipe = {
+        const newRecipe = {
             id: nanoid(),
             url: fData.url,
             name: fData.name,
             description: fData.description,
-            ingredients: fData.ingredients.split(','),
-            instructions: fData.instructions.split(',')
+            ingredients: fData.ingredients,
+            instructions: fData.instructions
         }
 
-        const updatedReceipes = [...receipes, newReceipe]
-        setReceipes(updatedReceipes);
+        const updatedRecipes = [...recipes, newRecipe]
+        setRecipes(updatedRecipes);
         setFData({
             url: "",
             name: '',
@@ -29,12 +29,12 @@ const Create = () => {
         })
 
         //todo: JSON.stringify(tasks) converts the tasks array into a JSON string:
-        localStorage.setItem('Receipes', JSON.stringify(updatedReceipes));
+        localStorage.setItem('Recipes', JSON.stringify(updatedRecipes));
 
-        // console.log("newReceipe : ", newReceipe);
+        // console.log("newRecipe : ", newRecipe);
     }
 
-    return { handleCreate, receipes, setReceipes, fData, setFData }
+    return { handleCreate, recipes, setRecipes, fData, setFData }
 
 };
 

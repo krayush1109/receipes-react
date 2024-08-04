@@ -8,7 +8,7 @@ import Details from "./pages/Details";
 import Create from "./pages/CreateX";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Update from "./pages/Update";
+import Update from "./pages/UpdateX";
 import NotFoundPage from "./pages/NotFoundPage";
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Layout />} />
                 <Route path="/create-recipe" element={<Create />} />
-                <Route path="/update-recipe" element={<Update />} />
+                <Route path="/update-recipe/:id" element={<Update />} />
                 <Route path="/recipes" element={<Recipes />} />
                 <Route path="/recipes/:id" element={<Details />} />
                 <Route path="/about" element={<About />} />
